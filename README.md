@@ -1,9 +1,10 @@
 # LLM_Superset.popclipext
 
-<center>
-  <img src="chatgpt-icon.svg" width="80px"/>
-  <img src="claude-ai-icon.svg" width="80px"/>
-</center>
+<p align="center">
+Supports
+  <img src="chatgpt-icon.svg" width="60px"/>
+  <img src="claude-ai-icon.svg" width="60px"/>
+</p>
 
 ![screenshot1](screenshot1.png)
 
