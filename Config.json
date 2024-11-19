@@ -9,14 +9,20 @@
     "link": "https://openai.com/blog/chatgpt"
   },
   "popclipVersion": 4069,
-  "module": "chatgpt-superset.js",
+  "module": "llm-superset.js",
   "entitlements": ["network"],
   "options": [
     {
       "identifier": "apikey",
-      "label": "API Key",
+      "label": "OpenAI API Key",
       "type": "string",
       "description": "Obtain an API key from: https://platform.openai.com/account/api-keys"
+    },
+    {
+      "identifier": "claudeapikey",
+      "label": "Claude API Key",
+      "type": "string",
+      "description": "Obtain an API key from: https://console.anthropic.com/settings/keys"
     },
     {
       "identifier": "tone",
@@ -33,9 +39,11 @@
       "defaultValue": "gpt-4o",
       "values": [
         "gpt-4o",
+        "claude-3-5-sonnet-latest",
         "gpt-4o-mini",
         "gpt-4",
         "gpt-4-turbo",
+        "claude-3-5-haiku-latest",
         "gpt-3.5-turbo"
       ],
       "description": "The OpenAI model to use"
