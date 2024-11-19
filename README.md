@@ -39,6 +39,10 @@ You need to create API keys with the services to enable the integration. Use the
 * https://platform.openai.com/account/api-keys
 * https://console.anthropic.com/settings/keys
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=orefalo/LLM_Superset.popclipext&type=Date)](https://star-history.com/#orefalo/LLM_Superset.popclipext&Date)
+
 ## Debug
 
 1. run **defaults write com.pilotmoon.popclip EnableExtensionDebug -bool YES**
