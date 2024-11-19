@@ -6,18 +6,21 @@ Supports
   <img src="claude-ai-icon.svg" width="60px"/>
 </p>
 
+<p align="center">
 ![screenshot1](screenshot1.png)
-
+<p>
+<p align="center">
 ![screenshot2](screenshot2.png)
+</p>
 
-This is my custom LLM extension for PopClip supporting some of the best LLM out there. 
+This is my custom extension for PopClip supporting some of the best LLM out there.
 
-* Supports OpenAI ChatGPT and Anthropic Claude
-* Tone settings: professional, concise, and friendly
-* Text improvements, corrections, enhancements, and summarization
-* Translation into multiple languages
-* Holding **SHIFT** copies the response to clipboard
-* Easy to modify by editing the code and JavaScript file
+- Supports OpenAI ChatGPT and Anthropic Claude
+- Tone settings: professional, concise, and friendly
+- Text improvements, corrections, enhancements, and summarization
+- Translation into multiple languages
+- Holding **SHIFT** copies the response to clipboard
+- Easy to modify by editing the code and JavaScript file
 
 ## Install
 
@@ -29,7 +32,7 @@ This is my custom LLM extension for PopClip supporting some of the best LLM out 
 
 ### Option 2
 
-1. Clone the repo  **git clone <this repo url>**
+1. Clone the repo **git clone <this repo url>**
 2. Double click on the toplevel folder, LLM_Superset.popclipext
 3. Follow PopClip instructions
 
@@ -37,8 +40,8 @@ This is my custom LLM extension for PopClip supporting some of the best LLM out 
 
 You need to create API keys with the services to enable the integration. Use the links below to activate them.
 
-* https://platform.openai.com/account/api-keys
-* https://console.anthropic.com/settings/keys
+- https://platform.openai.com/account/api-keys
+- https://console.anthropic.com/settings/keys
 
 ## Star History
 
