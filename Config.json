@@ -1,9 +1,9 @@
 {
-  "name": "ChatGPT SuperSet",
+  "name": "LLM SuperSet",
   "icon": "iconify:logos:openai-icon",
   "identifier": "orefalo.popclip.extension.chatgpt-superset",
-  "description": "Send the selected text to ChatGPT and append the response. Hold Shift (⇧) to copy just the response.",
-  "note": "To use this extension you will need an <a href=\"https://platform.openai.com/account/api-keys\">OpenAPI API key</a>",
+  "description": "Send the selected text to your prefered LLM and pastes the response. Hold Shift (⇧) to copy the response to the clipboard.",
+  "note": "To use this extension you will need API keys from the respective providers",
   "app": {
     "name": "ChatGPT",
     "link": "https://openai.com/blog/chatgpt"
