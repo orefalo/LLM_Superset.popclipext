@@ -7,10 +7,10 @@ Supports
 </p>
 
 <p align="center">
-![screenshot1](screenshot1.png)
+ <img src="screenshot1.png"/>
 <p>
 <p align="center">
-![screenshot2](screenshot2.png)
+ <img src="screenshot2.png"/>
 </p>
 
 This is my custom extension for PopClip supporting some of the best LLM out there.
