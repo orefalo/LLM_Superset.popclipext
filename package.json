@@ -1,0 +1,6 @@
+{
+  "name": "LLM_Superset.popclipext",
+  "version": "1.0.0",
+  "description": "PopClip LLM extensions",
+  "private":"true"
+}
