@@ -14,10 +14,6 @@ jobs:
       # Checkout
       - name: Checkout
         uses: actions/checkout@v4
-  
-      - name: Release Please
-        uses: googleapis/release-please-action@v4
-        id: release
 
       - name: Upload the packed package
         uses: actions/upload-release-asset@v1
