@@ -4,7 +4,7 @@ run-name: Release Please
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   release-please:
