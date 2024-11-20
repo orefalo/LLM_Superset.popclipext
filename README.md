@@ -26,7 +26,7 @@ This is my custom extension for PopClip supporting some of the best LLM out ther
 
 ### Option 1
 
-1. Download LLM_Superset.popclipextz
+1. Download LLM_Superset.popclipextz from [Releases](https://github.com/orefalo/LLM_Superset.popclipext/releases/tag/main)
 2. Double click the file
 3. Follow PopClip instructions
 
@@ -40,8 +40,8 @@ This is my custom extension for PopClip supporting some of the best LLM out ther
 
 You need to create API keys with the services to enable the integration. Use the links below to activate them.
 
-- https://platform.openai.com/account/api-keys
-- https://console.anthropic.com/settings/keys
+- [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys)
+- [https://console.anthropic.com/settings/keys](https://console.anthropic.com/settings/keys)
 
 ## Star History
 
