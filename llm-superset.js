@@ -11,7 +11,7 @@ function prepareResponse(data) {
 }
 
 async function callLLMapi(prompt, options) {
-  if (options.model.startsWith("gpt")) {
+  if (options.model.startsWith("gpt") || options.model.startsWith("o1")) {
     return await callOpenAPI(prompt, options);
   } else if (options.model.startsWith("claude")) {
     return await callClaudeAPI(prompt, options);
@@ -75,7 +75,7 @@ async function improveWritting(input, options) {
   const prompt =
     "I want you to act as an English spelling corrector and improver. Keep the meaning the same, use a " +
     options.tone +
-    " tone, avoid complex words and verbs. I want you to only reply the correction, the improvements and nothing else, do not write explanations. Correct and improve the following sentence: \n\n" +
+    " tone, avoid complex words and verbs. I want you to only reply the correction, the improvements and nothing else, do not write explanations. keep the input language the same, correct and improve the following sentence: \n\n" +
     input.text.trim();
 
   const data = await callLLMapi(prompt, options);
@@ -84,7 +84,7 @@ async function improveWritting(input, options) {
 
 async function spellingAndGrammar(input, options) {
   const prompt =
-    "I want you to act as an English spelling corrector, only reply the correction, the improvements and nothing else, do not write explanations. improve the following sentence using a " +
+    "I want you to act as an English spelling corrector, only reply the correction, the improvements and nothing else, do not write explanations. keep the input language the same, improve the following sentence using a " +
     options.tone +
     " tone: \n\n" +
     input.text.trim();
@@ -95,7 +95,7 @@ async function spellingAndGrammar(input, options) {
 
 async function summarize(input, options) {
   const prompt =
-    "You are a highly skilled AI trained in language comprehension and summarization. I would like you to read the following text and summarize it into a concise abstract paragraph. Aim to retain the most important points, providing a coherent and readable summary that could help a person understand the main points of the discussion without needing to read the entire text. avoid unnecessary details or tangential points: \n\n" +
+    "You are a highly skilled AI trained in language comprehension and summarization. I would like you to read the following text and summarize it into a concise abstract paragraph. Aim to retain the most important points, providing a coherent and readable summary that could help a person understand the main points of the discussion without needing to read the entire text. keep the input language the same, avoid unnecessary details or tangential points: \n\n" +
     input.text.trim();
 
   const data = await callLLMapi(prompt, options);
@@ -104,7 +104,7 @@ async function summarize(input, options) {
 
 async function makeLonger(input, options) {
   const prompt =
-    "I'll give you text. You'll rewrite it and output it longer Keep the meaning the same as well as the language. Only give me the output and nothing else. Now, using the concepts above, re-write the following text. Respond in the same language variety or dialect of the following text: \n\n" +
+    "I'll give you text. You'll rewrite it and output it longer Keep the meaning the same as well as the language. Only give me the output and nothing else. Now, using the concepts above, re-write the following text. keep the input language the same, respond in the same language variety or dialect of the following text: \n\n" +
     input.text.trim();
 
   const data = await callLLMapi(prompt, options);
@@ -113,7 +113,7 @@ async function makeLonger(input, options) {
 
 async function makeShorter(input, options) {
   const prompt =
-    "I'll give you text. You'll rewrite it and output it shorter to be no more than half the number of characters of the original text.Keep the meaning the same. Only give me the output and nothing else.Now, using the concepts above, re-write the following text. Respond in the same language variety or dialect of the following text: \n\n" +
+    "I'll give you text. You'll rewrite it and output it shorter to be no more than half the number of characters of the original text.Keep the meaning the same. Only give me the output and nothing else.Now, using the concepts above, re-write the following text. keep the input language the same, respond in the same language variety or dialect of the following text: \n\n" +
     input.text.trim();
 
   const data = await callLLMapi(prompt, options);
