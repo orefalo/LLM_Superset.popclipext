@@ -44,7 +44,9 @@
         "gpt-4",
         "gpt-4-turbo",
         "claude-3-5-haiku-latest",
-        "gpt-3.5-turbo"
+        "gpt-3.5-turbo",
+        "o1-preview",
+        "o1-mini"
       ],
       "description": "The OpenAI model to use"
     },
@@ -54,11 +56,16 @@
       "type": "multiple",
       "values": [
         "English",
-        "Chinese",
-        "Russian",
+        "Mandarin Chinese",
+        "Spanish",
         "French",
+        "German",
+        "Russian",
         "Português",
-        "Spanish"
+        "Italian",
+        "Polish",
+        "Ukrainian",
+        "Dutch"
       ],
       "defaultValue": "French",
       "description": "The target translation language"
