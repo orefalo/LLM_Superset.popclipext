@@ -1,4 +1,3 @@
-
 const axios = require("axios");
 
 function prepareResponse(data) {
@@ -73,9 +72,9 @@ async function callOpenAPI(prompt, options) {
 
 async function improveWritting(input, options) {
   const prompt =
-    "I want you to act as an English spelling corrector and improver. Keep the meaning the same, use a " +
+    "I want you to act as an improver. Keep the meaning the same, use a " +
     options.tone +
-    " tone, avoid complex words and verbs. I want you to only reply the correction, the improvements and nothing else, do not write explanations. keep the input language the same, correct and improve the following sentence: \n\n" +
+    " tone, avoid complex words and verbs. I want you to only reply the improvements and nothing else, do not write explanations. keep the input language the same, rewrite and improve the following: \n\n" +
     input.text.trim();
 
   const data = await callLLMapi(prompt, options);
@@ -84,7 +83,7 @@ async function improveWritting(input, options) {
 
 async function spellingAndGrammar(input, options) {
   const prompt =
-    "I want you to act as an English spelling corrector, only reply the correction, the improvements and nothing else, do not write explanations. keep the input language the same, improve the following sentence using a " +
+    "I want you to act as an spelling corrector, only reply the correction and nothing else, do not write explanations. keep the input language the same, correct the following using a " +
     options.tone +
     " tone: \n\n" +
     input.text.trim();
