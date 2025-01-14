@@ -103,7 +103,7 @@ async function summarize(input, options) {
 
 async function makeLonger(input, options) {
   const prompt =
-    "I'll give you text. You'll rewrite it and output it longer Keep the meaning the same as well as the language. Only give me the output and nothing else. Now, using the concepts above, re-write the following text. keep the input language the same, respond in the same language variety or dialect of the following text: \n\n" +
+    "You are a highly skilled AI trained in language comprehension. I'll give you text, you'll rewrite and output a longer form. Keep the meaning and input language the same, only give me the output and nothing else. respond in the same language variety or dialect of the following text: \n\n" +
     input.text.trim();
 
   const data = await callLLMapi(prompt, options);
@@ -112,7 +112,7 @@ async function makeLonger(input, options) {
 
 async function makeShorter(input, options) {
   const prompt =
-    "I'll give you text. You'll rewrite it and output it shorter to be no more than half the number of characters of the original text.Keep the meaning the same. Only give me the output and nothing else.Now, using the concepts above, re-write the following text. keep the input language the same, respond in the same language variety or dialect of the following text: \n\n" +
+    "You are a highly skilled AI trained in language comprehension. I'll give you text, you'll rewrite and output a shorter form. Keep the meaning and input language the same, only give me the output and nothing else. respond in the same language variety or dialect of the following text: \n\n" +
     input.text.trim();
 
   const data = await callLLMapi(prompt, options);
