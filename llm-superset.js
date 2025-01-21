@@ -103,7 +103,7 @@ async function summarize(input, options) {
 
 async function makeLonger(input, options) {
   const prompt =
-    "You are a highly skilled AI trained in language comprehension. I'll give you text, you'll rewrite and output a longer form. Keep the meaning and input language the same, only give me the output and nothing else. respond in the same language variety or dialect of the following text: \n\n" +
+    "You are a highly advanced AI with exceptional language comprehension skills. I will provide you with a piece of text, and your task will be to rewrite it into a longer, more detailed form. Ensure the original meaning is preserved and maintain the same language variety or dialect as the input. Your response should consist solely of the rewritten text, with no additional commentary or explanation: \n\n" +
     input.text.trim();
 
   const data = await callLLMapi(prompt, options);
@@ -112,7 +112,7 @@ async function makeLonger(input, options) {
 
 async function makeShorter(input, options) {
   const prompt =
-    "You are a highly skilled AI trained in language comprehension. I'll give you text, you'll rewrite and output a shorter form. Keep the meaning and input language the same, only give me the output and nothing else. respond in the same language variety or dialect of the following text: \n\n" +
+    "You are a highly advanced AI with exceptional language comprehension skills. I will provide you with a piece of text, and your task will be to rewrite it into a short, less detailed form. Ensure the original meaning is preserved and maintain the same language variety or dialect as the input. Your response should consist solely of the rewritten text, with no additional commentary or explanation: \n\n" +
     input.text.trim();
 
   const data = await callLLMapi(prompt, options);
@@ -120,11 +120,9 @@ async function makeShorter(input, options) {
 }
 
 async function translate(input, options) {
-  const prompt =
-    "I will give you text content, you will translate the text into " +
-    options.tolang +
-    " language. Keep the meaning the same. Do not alter the original structure and formatting outlined in any way. Only give me the output and nothing else: \n\n" +
-    input.text.trim();
+  const prompt = `I will provide you with text content, and your task is to translate it into ${
+    options.tolang
+  } while preserving its original meaning. Maintain the exact structure and formatting of the original text without any alterations. Your response should consist solely of the translated content, with no additional commentary or explanation: ${input.text.trim()} `;
 
   const data = await callLLMapi(prompt, options);
   prepareResponse(data);
