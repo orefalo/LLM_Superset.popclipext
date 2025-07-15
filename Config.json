@@ -40,10 +40,10 @@
       "values": [
         "gpt-4",
         "gpt-4o",
-        "claude-sonnet-4-0",
-        "o4-mini",
-        "claude-opus-4-0",
+        "gpt-4o-mini",
         "gpt-4.1",
+        "claude-sonnet-4-0",
+        "claude-opus-4-0",
         "o1",
         "o1-mini"
       ],
