@@ -41,11 +41,9 @@
         "gpt-5",
         "gpt-5-mini",
         "gpt-4o",
-        "gpt-4o-mini",
-        "claude-sonnet-4-0",
-        "claude-opus-4-0",
-        "o1",
-        "o1-mini"
+        "claude-sonnet-4-5",
+        "claude-opus-4-5",
+        "o1"
       ],
       "description": "The OpenAI model to use"
     },
