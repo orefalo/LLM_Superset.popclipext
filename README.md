@@ -42,6 +42,7 @@ You need to create API keys with the services to enable the integration. Use the
 
 - [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys)
 - [https://console.anthropic.com/settings/keys](https://console.anthropic.com/settings/keys)
+- For local LLM (LM Studio), enter 'local:modelname' for example 'local:qwen/qwen3-coder-30b'. This will connect to the address 127.0.0.1:1234.
 
 ## Star History
 
