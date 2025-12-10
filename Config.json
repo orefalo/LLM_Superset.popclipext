@@ -15,13 +15,13 @@
     {
       "identifier": "apikey",
       "label": "OpenAI API Key",
-      "type": "string",
+      "type": "secret",
       "description": "Obtain an API key from: https://platform.openai.com/account/api-keys"
     },
     {
       "identifier": "claudeapikey",
       "label": "Claude API Key",
-      "type": "string",
+      "type": "secret",
       "description": "Obtain an API key from: https://console.anthropic.com/settings/keys"
     },
     {
@@ -35,19 +35,9 @@
     {
       "identifier": "model",
       "label": "AI model",
-      "type": "multiple",
-      "defaultValue": "gpt-4o",
-      "values": [
-        "gpt-5.1",
-        "gpt-5.1-mini",
-        "gpt-4.1",
-        "gpt-4.1-mini",
-        "gpt-4o",
-        "claude-sonnet-4-5",
-        "claude-opus-4-5",
-        "o1"
-      ],
-      "description": "The OpenAI model to use"
+      "type": "string",
+      "description": "For OpenAI/Claude, use names like 'gpt-4o' or 'claude-3-5-sonnet-20240620'. For LM Studio, use 'local:modelname' (replace modelname with your loaded model, e.g., 'local:qwen/qwen3-coder-30b').",
+      "defaultValue": "gpt-4o"
     },
     {
       "identifier": "tolang",
