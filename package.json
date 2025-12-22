@@ -6,10 +6,10 @@
   "scripts": {
     "check": "tsc --noEmit",
     "format": "biome format --write",
-    "build": "esbuild Config.ts --bundle --platform=node --packages=external --target=node10.4 --outfile=Config.js",
+    "build": "esbuild src/Config.ts --bundle --platform=node --packages=external --target=node10.4 --outfile=src/Config.js",
     "bundle": "pnpm build && ./bundle.sh",
-    "install": "pnpm bundle && open LLM_Superset.popclipext",
-    "test": "ts-node customUrlParser.ts"
+    "deploy": "pnpm bundle && open LLM_Superset.popclipext",
+    "test": "ts-node src/customUrlParser.ts"
   },
   "dependencies": {},
   "devDependencies": {

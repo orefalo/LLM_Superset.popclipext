@@ -1,4 +1,4 @@
 node_modules
 LLM_Superset.popclipext
-Config.js
+src/Config.js
 .vscode

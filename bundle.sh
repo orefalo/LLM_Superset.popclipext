@@ -39,5 +39,5 @@ copy_slash_header() {
 
 rm -rf LLM_Superset.popclipext
 mkdir LLM_Superset.popclipext
-cp Config.js LLM_Superset.popclipext/Config.js
-copy_slash_header Config.ts LLM_Superset.popclipext/Config.js
+cp src/Config.js LLM_Superset.popclipext/Config.js
+copy_slash_header src/Config.ts LLM_Superset.popclipext/Config.js
