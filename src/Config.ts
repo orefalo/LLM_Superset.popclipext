@@ -30,7 +30,8 @@ export const options = [
       "Model list: https://platform.openai.com/docs/pricing or https://platform.claude.com/docs/en/about-claude/pricing",
     values: [
       "openai:gpt-5.2",
-      "openai:gpt-5.2-mini",
+      "openai:gpt-5.1",
+      "openai:gpt-5-mini",
       "openai:gpt-4o",
       "claude:claude-sonnet-4-5",
       "claude:claude-opus-4-5",
