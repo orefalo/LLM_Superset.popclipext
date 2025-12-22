@@ -34,7 +34,7 @@ jobs:
 
       - name: Package extension
         run: |
-          zip -r LLM_SuperSet.popclipz LLM_Superset.popclipext/LLM_Superset.popclipext
+          zip -r LLM_SuperSet.popclipz LLM_Superset.popclipext
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
