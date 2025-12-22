@@ -110,7 +110,7 @@ async function callCustomAPI(prompt: string, options: ParsedOptions) {
 
   const messages = [{ role: "user", content: prompt }];
   const { data } = await axios.post(
-    "https://api.openai.com/v1/chat/completions",
+    `${options.protocol}://${options.server}:${options.port}/v1/chat/completions`,
     {
       model: options.model,
       messages,
