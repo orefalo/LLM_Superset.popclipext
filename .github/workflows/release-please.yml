@@ -14,16 +14,32 @@ jobs:
       # Checkout
       - name: Checkout
         uses: actions/checkout@v4
-        
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
       - name: Build
+        run: pnpm bundle
+
+      - name: Package extension
         run: |
-          cd .. && zip -r LLM_SuperSet.popclipextz LLM_Superset.popclipext -x "*.git*" -x "*.vscode*"
+          zip -r LLM_SuperSet.popclipz LLM_Superset.popclipext/LLM_Superset.popclipext
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ../LLM_SuperSet.popclipextz
+          file: LLM_SuperSet.popclipz
           tag: ${{ github.ref }}
           overwrite: true
-
