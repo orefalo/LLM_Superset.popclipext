@@ -23,7 +23,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'pnpm'
 
       - name: Install dependencies
@@ -34,12 +34,12 @@ jobs:
 
       - name: Package extension
         run: |
-          zip -r LLM_SuperSet.popclipz LLM_Superset.popclipext
+          zip -r LLM_SuperSet.popclipextz LLM_Superset.popclipext
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: LLM_SuperSet.popclipz
+          file: LLM_SuperSet.popclipextz
           tag: ${{ github.ref }}
           overwrite: true
