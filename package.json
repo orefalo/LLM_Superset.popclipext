@@ -8,7 +8,7 @@
     "format": "biome format --write",
     "build": "esbuild src/Config.ts --bundle --platform=node --packages=external --target=node10.4 --outfile=src/Config.js",
     "bundle": "pnpm build && ./bundle.sh",
-    "deploy": "pnpm bundle && open LLM_Superset.popclipext",
+    "install_ext": "pnpm bundle && open LLM_Superset.popclipext",
     "test": "ts-node src/customUrlParser.ts"
   },
   "dependencies": {},

@@ -32,8 +32,9 @@ This is my custom extension for PopClip supporting some of the best LLM.
 
 ### Option 2
 
-1. Clone the repo **git clone <this repo url>**
-2. Double click on the toplevel folder, LLM_Superset.popclipext
+1. Clone this repo
+2. Run command `pnpm i` followed by `pnpm install_ext`
+3. The extension will compile into `LLM_Superset.popclipext` and auto-deploy
 3. Follow PopClip instructions
 
 ### Configuration
@@ -50,5 +51,7 @@ You need to create API keys with the LLM service of your choice to enable the in
 
 ## Debug
 
-1. run **defaults write com.pilotmoon.popclip EnableExtensionDebug -bool YES**
+To enable console debug, follow these instructions
+
+1. from the CLI, run `defaults write com.pilotmoon.popclip EnableExtensionDebug -bool YES`
 2. then open OSX's **console.app** and apply filter **Process:PopClip Category:Extension**
