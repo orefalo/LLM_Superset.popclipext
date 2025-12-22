@@ -20,7 +20,7 @@ This is my custom extension for PopClip supporting some of the best LLM.
 - Tone settings: professional, concise, and friendly
 - Text improvements, corrections, enhancements, and summarization
 - Translation back and forth into multiple languages
-- Holding **SHIFT** copies the response to clipboard
+- Holding **SHIFT** copies the response to the clipboard
 
 ## Install
 
