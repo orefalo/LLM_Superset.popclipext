@@ -45,6 +45,11 @@ You need to create API keys with the LLM service of your choice to enable the in
 - https://console.anthropic.com/settings/keys
 - https://aistudio.google.com/app/api-keys
 
+### Models
+
+- https://platform.openai.com/docs/pricing
+- 
+
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=orefalo/LLM_Superset.popclipext&type=Date)](https://star-history.com/#orefalo/LLM_Superset.popclipext&Date)

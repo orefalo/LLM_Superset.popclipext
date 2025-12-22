@@ -25,7 +25,7 @@ export const options = [
     identifier: "model",
     label: "Model",
     type: "multiple",
-    defaultValue: "openai:gpt-5.2-mini",
+    defaultValue: "openai:gpt-5.2",
     description:
       "Model list: https://platform.openai.com/docs/pricing or https://platform.claude.com/docs/en/about-claude/pricing",
     values: [
