@@ -4,40 +4,55 @@ Converts a ExtensionOptions into a ParsedOptions or throws an Exception based on
 
 import { type ExtensionOptions } from "./Config.ts";
 
-export type Provider = "openai" | "claude" | "gemini";
+export type Provider = "openai" | "claude" | "gemini" | "custom";
 
-export type ParsedHttpUrl = {
-  kind: "http";
-  protocol: "http" | "https";
-  server: string;
-  port: number;
-  model: string;
-  apiKey: string;
-  tone: string;
-  language: string;
-};
+// export type ParsedHttpUrl = {
+//   kind: "http";
+//   protocol: "http" | "https";
+//   server: string;
+//   port: number;
+//   model: string;
+//   apiKey: string;
+//   tone: string;
+//   language: string;
+// };
 
-export type ParsedProviderUrl = {
-  kind: "provider";
+// export type ParsedProviderUrl = {
+//   kind: "provider";
+//   provider: Provider;
+//   model: string;
+//   apiKey: string;
+//   tone: string;
+//   language: string;
+// };
+
+export interface ParsedOptions {
   provider: Provider;
   model: string;
+  // used for custom
+  protocol?: "http" | "https";
+  server?: string;
+  port?: number;
+
   apiKey: string;
   tone: string;
   language: string;
-};
+}
 
-export type ParsedOptions = ParsedHttpUrl | ParsedProviderUrl;
+//export type ParsedOptions = ParsedHttpUrl | ParsedProviderUrl;
 
 export function parseOptions(options: ExtensionOptions): ParsedOptions {
-  console.log(JSON.stringify(options));
-
   // Model
   let model = options.model;
   if (model === "Custom Model") {
     model = options.customModel.trim();
+    if (model.length === 0)
+      throw new Error("Settings error: Custom model url not set");
   }
 
   const modelProvider = parseCustomModelUrl(model);
+
+  popclip.showText(JSON.stringify(modelProvider));
 
   // API key
   const key = options.apikey.trim();
@@ -67,7 +82,6 @@ function parseCustomModelUrl(urlModel: string): ParsedOptions {
       const model = providerMatch[2];
       if (model.trim().length > 0) {
         return {
-          kind: "provider",
           provider,
           model,
           apiKey: "",
@@ -89,6 +103,7 @@ function parseCustomModelUrl(urlModel: string): ParsedOptions {
  - https://server:port/model
  - openai:model
  - claude:model
+ - gemini:model
 Got: ${urlModel}`,
     );
   }
@@ -116,11 +131,11 @@ Got: ${urlModel}`,
   }
 
   return {
-    kind: "http",
+    provider: "custom",
+    model: path,
     protocol: url.protocol === "http:" ? "http" : "https",
     server: url.hostname,
     port,
-    model: path,
     apiKey: "",
     tone: "",
     language: "",

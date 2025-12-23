@@ -4,14 +4,17 @@ import { type ParsedOptions } from "./parsedOptions.ts";
 
 export async function callLLMapi(prompt: string, options: ParsedOptions) {
   try {
-    if (options.model === "openai") {
-      return await callOpenAPI(prompt, options);
-    } else if (options.model === "claude") {
-      return await callClaudeAPI(prompt, options);
-    } else if (options.model === "gemini") {
-      return await callGeminiAPI(prompt, options);
-    } else {
-      return await callCustomAPI(prompt, options);
+    switch (options.provider) {
+      case "openai":
+        return await callOpenAPI(prompt, options);
+      case "claude":
+        return await callClaudeAPI(prompt, options);
+      case "gemini":
+        return await callGeminiAPI(prompt, options);
+      case "custom":
+        return await callCustomAPI(prompt, options);
+      default:
+        throw new Error(`Unknown provider ${options.provider}`);
     }
   } catch (error) {
     if (typeof error === "object" && error !== null && "response" in error) {
