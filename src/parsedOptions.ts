@@ -29,9 +29,12 @@ export type ParsedProviderUrl = {
 export type ParsedOptions = ParsedHttpUrl | ParsedProviderUrl;
 
 export function parseOptions(options: ExtensionOptions): ParsedOptions {
-  let model = options.customModel.trim();
-  if (!model || model.length === 0) {
-    model = options.model;
+  console.log(JSON.stringify(options));
+
+  // Model
+  let model = options.model;
+  if (model === "Custom Model") {
+    model = options.customModel.trim();
   }
 
   const modelProvider = parseCustomModelUrl(model);
@@ -39,7 +42,7 @@ export function parseOptions(options: ExtensionOptions): ParsedOptions {
   // API key
   const key = options.apikey.trim();
   if (!key || key.length === 0)
-    throw new Error("Settings error: missing ClaudeAPI key");
+    throw new Error("Settings error: missing API key");
   modelProvider.apiKey = key;
 
   // Tone
@@ -62,7 +65,7 @@ function parseCustomModelUrl(urlModel: string): ParsedOptions {
       provider === "gemini"
     ) {
       const model = providerMatch[2];
-      if (model.trim()) {
+      if (model.trim().length > 0) {
         return {
           kind: "provider",
           provider,
@@ -137,7 +140,7 @@ function testSafeParse(input: string) {
 }
 
 // ---- your test calls, parameterized ----
-[
+for (const url of [
   "https://example.com:443/namespace/model",
   "https://example.com:443/path/namespace/model",
   "https://example.com:8443/namespace/model",
@@ -151,4 +154,6 @@ function testSafeParse(input: string) {
   "claude:claude-3.5-sonnet",
   "claude:",
   "",
-].forEach(testSafeParse);
+]) {
+  testSafeParse(url);
+}

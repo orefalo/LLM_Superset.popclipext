@@ -29,12 +29,16 @@ export const options = [
     description:
       "Model list: https://platform.openai.com/docs/pricing or https://platform.claude.com/docs/en/about-claude/pricing",
     values: [
+      "Custom Model",
       "openai:gpt-5.2",
       "openai:gpt-5.1",
       "openai:gpt-5-mini",
       "openai:gpt-4o",
-      "claude:claude-sonnet-4-5",
       "claude:claude-opus-4-5",
+      "claude:claude-sonnet-4-5",
+      "gemini:gemini-3-pro-preview",
+      "gemini:gemini-3-flash-preview",
+      "gemini:gemini-2.5-flash",
     ],
   },
   {
@@ -43,7 +47,7 @@ export const options = [
     type: "string",
     defaultValue: "",
     description:
-      "If filled, overwrites model with a URL of the form 'http://server:port/<model>'. you can also use 'openai:<model>', 'gemini:<model>' or 'claude:<model>'",
+      "URL of the form 'http://server:port/<model>'. you can also use 'openai:<model>', 'gemini:<model>' or 'claude:<model>'",
   },
   {
     identifier: "tone",
@@ -105,6 +109,3 @@ export const options = [
     icon: "iconify:bi:translate",
   },
 ] as const;
-
-
-
