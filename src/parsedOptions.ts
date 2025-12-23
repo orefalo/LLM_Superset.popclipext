@@ -53,9 +53,13 @@ export function parseOptions(options: ExtensionOptions): ParsedOptions {
   const modelProvider = parseCustomModelUrl(model);
 
   // API key
-  const key = options.apikey.trim();
-  if (!key || key.length === 0)
+  let key = options.apikey.trim();
+  if (options.model === "Custom Model" && (!key || key.length === 0)) {
+    key = "***";
+  }
+  if (!key || key.length === 0) {
     throw new Error("Settings error: missing API key");
+  }
   modelProvider.apiKey = key;
 
   // Tone
