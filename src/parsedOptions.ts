@@ -52,8 +52,6 @@ export function parseOptions(options: ExtensionOptions): ParsedOptions {
 
   const modelProvider = parseCustomModelUrl(model);
 
-  popclip.showText(JSON.stringify(modelProvider));
-
   // API key
   const key = options.apikey.trim();
   if (!key || key.length === 0)
