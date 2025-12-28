@@ -2,7 +2,7 @@
 Converts a ExtensionOptions into a ParsedOptions or throws an Exception based on constraints
 */
 
-import { type ExtensionOptions } from "./Config.ts";
+import type { ExtensionOptions } from "./Config.ts";
 
 export type Provider = "openai" | "claude" | "gemini" | "custom";
 
@@ -54,11 +54,11 @@ export function parseOptions(options: ExtensionOptions): ParsedOptions {
 
   // API key
   let key = options.apikey.trim();
-  if (options.model === "Custom Model" && (!key || key.length === 0)) {
-    key = "***";
-  }
-  if (!key || key.length === 0) {
-    throw new Error("Settings error: missing API key");
+  // the key is typically optional for cusom model, do not perform validations
+  if (options.model !== "Custom Model") {
+    if (!key || key.length === 0) {
+      throw new Error("Settings error: missing API key");
+    }
   }
   modelProvider.apiKey = key;
 
