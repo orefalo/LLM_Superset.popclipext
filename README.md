@@ -72,7 +72,7 @@ For instance:
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=orefalo/LLM_Superset.popclipext&type=Date)](https://star-history.com/#orefalo/LLM_Superset.popclipext&Date)
+<img src="https://star-history.com/#orefalo/LLM_Superset.popclipext&Date"/>
 
 ## Debug
 
