@@ -2,16 +2,16 @@
 
 <p align="center">
 Supports
-  <img src="chatgpt-icon.svg" width="60px"/>
-  <img src="claude-ai-icon.svg" width="60px"/>
-  <img src="gemini-icon.svg" width="60px"/>
+  <img src="img/chatgpt-icon.svg" width="60px"/>
+  <img src="img/claude-ai-icon.svg" width="60px"/>
+  <img src="img/gemini-icon.svg" width="60px"/>
 </p>
 
 <p align="center">
- <img src="screenshot1.png"/>
+ <img src="img/screenshot1.png"/>
 <p>
 <p align="center">
- <img src="screenshot2.png"/>
+ <img src="img/screenshot2.png"/>
 </p>
 
 This is my custom extension for PopClip supporting some of the best LLM.
