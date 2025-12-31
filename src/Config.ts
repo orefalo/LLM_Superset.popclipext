@@ -4,7 +4,6 @@
 // identifier: orefalo.popclip.extension.chatgpt-superset
 // description: Send the selected text to your prefered LLM and pastes the response. Hold Shift (⇧) to copy the response to the clipboard.
 // note: To use this extension you will need API keys from the respective providers
-// app: { name: LLM Superset, link: 'https://github.com/orefalo/LLM_Superset' }
 // popclipVersion: 4586
 // keywords: openai claude gemini chatgpt superset
 // entitlements: [network]
