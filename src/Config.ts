@@ -1,6 +1,6 @@
 // #popclip
 // name: LLM Superset
-// icon: iconify:tabler:file-text-ai
+// icon: preserve-color file:superset.svg
 // identifier: orefalo.popclip.extension.chatgpt-superset
 // description: Send the selected text to your prefered LLM and pastes the response. Hold Shift (⇧) to copy the response to the clipboard.
 // note: To use this extension you will need API keys from the respective providers
