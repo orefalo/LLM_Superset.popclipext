@@ -33,7 +33,7 @@ This is my custom extension for PopClip supporting some of the best LLM.
 ### Option 2
 
 1. Clone this repo
-2. Run command `pnpm i` followed by `pnpm install_ext`
+2. Run command `pnpm i` followed by `pnpm install_bundle`
 3. The extension will compile into `LLM_Superset.popclipext` and auto-deploy
 3. Follow PopClip instructions
 
