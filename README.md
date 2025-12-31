@@ -76,7 +76,15 @@ For instance:
 
 ## Debug
 
-To enable console debug, follow these instructions
+To help you when creating extensions, PopClip can send script outputs and other debug info to the Console app. To enable it, run this command in Terminal, then Quit and restart PopClip:
+`defaults write com.pilotmoon.popclip EnableExtensionDebug -bool YES`
 
-1. from the CLI, run `defaults write com.pilotmoon.popclip EnableExtensionDebug -bool YES`
-2. then open OSX's **console.app** and apply filter **Process:PopClip** and **pnCategory:Extension**
+You can then view the debug output in the Console app.
+
+<img src="img/console.png"/>
+
+To filter the Console to show just PopClip extensions, enter Process "PopClip" and Category "Extension" in the Search field. You can add this as a saved search by clicking the Save button in the toolbar:
+
+<img src="img/console-filter.png"/>
+
+all `print()` commands are sent to the console.
