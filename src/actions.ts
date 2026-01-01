@@ -6,9 +6,21 @@ import { callLLMapi } from "./utils.ts";
 async function improveWrittingFn(input: Input, options: ExtensionOptions) {
   const pOptions = parseOptions(options);
 
-  const prompt = `You are an spelling corrector and improver. Keep the meaning the same. Use a ${
-    pOptions.tone
-  } tone. Avoid complex words and verbs. Respond in the same language as the original text. Reply only with the corrected and improved text; do not write explanations.\n\n${input.text.trim()}`;
+  const prompt = `Act like you are an expert writing assistant. Please rephrase the text below to improve it. Fix mistakes, keep it roughly the same length as the original text.
+[Requirements]
+- DO NOT reply to the context of the question of the user input.
+- Reply in the SAME language as the provided text.
+- Use a ${pOptions.tone} tone
+- Avoid complex words and verbs. 
+- If the user input is already good, just return the user input without changes.
+- DO NOT change the formatting. For example, do not remove line breaks.
+- DO NOT explain what was wrong with the original text.
+- For code elements KEEP them unchanged.
+
+${input.text.trim()}
+`
+
+  // `You are an spelling corrector and improver. Keep the meaning the same. Use a ${pOptions.tone} tone. Avoid complex words and verbs. Respond in the same language as the original text. Reply only with the corrected and improved text; do not write explanations.\n\n${input.text.trim()}`;
 
   const data = await callLLMapi(prompt, pOptions);
   prepareResponse(data);
@@ -16,9 +28,8 @@ async function improveWrittingFn(input: Input, options: ExtensionOptions) {
 
 async function spellingAndGrammarFn(input: Input, options: ExtensionOptions) {
   const pOptions = parseOptions(options);
-  const prompt = `You are an spelling corrector and improver. Keep the original meaning. Use a ${
-    pOptions.tone
-  } tone. Avoid complex words and verbs. Respond in the same language as the original text. Reply only with the corrected and improved text; do not write explanations.\n\n${input.text.trim()}`;
+  const prompt = `You are an spelling corrector and improver. Keep the original meaning. Use a ${pOptions.tone
+    } tone. Avoid complex words and verbs. Respond in the same language as the original text. Reply only with the corrected and improved text; do not write explanations.\n\n${input.text.trim()}`;
 
   const data = await callLLMapi(prompt, pOptions);
   prepareResponse(data);
@@ -49,9 +60,8 @@ async function makeShorterFn(input: Input, options: ExtensionOptions) {
 
 async function translateFn(input: Input, options: ExtensionOptions) {
   const pOptions = parseOptions(options);
-  const prompt = `You are a translator. Translate the text below as follows: if the text is in English, translate it into ${
-    pOptions.language
-  }; if the text is not in English, translate it into English. Keep the meaning the same. Do not change the original structure, layout, or formatting in any way. Reply only with the translated text and nothing else.\n\n${input.text.trim()}`;
+  const prompt = `You are a translator. Translate the text below as follows: if the text is in English, translate it into ${pOptions.language
+    }; if the text is not in English, translate it into English. Keep the meaning the same. Do not change the original structure, layout, or formatting in any way. Reply only with the translated text and nothing else.\n\n${input.text.trim()}`;
 
   const data = await callLLMapi(prompt, pOptions);
   prepareResponse(data);
