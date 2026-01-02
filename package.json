@@ -9,7 +9,7 @@
     "build": "esbuild src/Config.ts --bundle --minify --tree-shaking=true --platform=node --packages=external --target=node10.4 --define:process.env.NODE_ENV=\\\"production\\\" --outfile=src/Config.js",
     "bundle": "pnpm build && ./bundle.sh",
     "install_bundle": "pnpm bundle && open LLM_Superset.popclipext",
-    "test": "ts-node src/customUrlParser.ts"
+    "test": "ts-node src/parseurl.test.ts"
   },
   "dependencies": {},
   "devDependencies": {
