@@ -96,10 +96,10 @@ export const options = [
     icon: "iconify:mdi:file-minus",
   },
   {
-    identifier: "showSummary",
-    label: "Show Summary Button",
+    identifier: "showSimplify",
+    label: "Show Simplify Button",
     type: "boolean",
-    icon: "symbol:arrow.down.right.and.arrow.up.left",
+    icon: "file:simplify.svg",
   },
   {
     identifier: "showTranslate",

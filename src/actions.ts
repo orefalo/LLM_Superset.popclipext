@@ -6,7 +6,8 @@ import { callLLMapi } from "./utils.ts";
 async function improveWrittingFn(input: Input, options: ExtensionOptions) {
   const pOptions = parseOptions(options);
 
-  const prompt = `Act like you are an expert writing assistant. Please rephrase the text below to improve it. Fix mistakes, keep it roughly the same length as the original text.
+  const prompt = `Act like you are an expert writing assistant.
+  Please rephrase the text below to improve it. Fix mistakes, keep it roughly the same length as the original text.
 [Constraints]
 - DO NOT reply to the context of the question of the user input.
 - Reply in the SAME language as the provided text.
@@ -51,9 +52,23 @@ ${input.text.trim()}
   prepareResponse(data);
 }
 
-async function summarizeFm(input: Input, options: ExtensionOptions) {
+async function simplifyFn(input: Input, options: ExtensionOptions) {
   const pOptions = parseOptions(options);
-  const prompt = `You are an expert at language comprehension and summarization. Read the text below and write one concise paragraph that summarizes the main points. Retain only the most important information needed to understand the core ideas. Respond in the same language as the original text. Avoid unnecessary details, examples, or side topics.\n\n${input.text.trim()}`;
+
+  const prompt = `
+Act like you are an expert copywriter.
+Please provide a simplified version of the text that is more concise and easier to understand.
+
+[Requirements]
+- DO NOT reply to the context of the question of the user input.
+- Reply in the SAME language as the provided text.
+- Use a ${pOptions.tone} tone.
+- For code elements KEEP them unchanged.
+- DO NOT change the formatting. For example, do not remove line breaks.
+- DO NOT change the meaning of the text.
+
+${input.text.trim()}
+`;
 
   const data = await callLLMapi(prompt, pOptions);
   prepareResponse(data);
@@ -69,8 +84,8 @@ async function makeLongerFn(input: Input, options: ExtensionOptions) {
 async function makeShorterFn(input: Input, options: ExtensionOptions) {
   const pOptions = parseOptions(options);
   const prompt = `Act like you are an expert Copywriter. Make the following text shorter by removing unnecessary details.
-  
-  [Requirements]
+
+[Requirements]
 - DO NOT reply to the context of the question of the user input.
 - Reply in the SAME language as the provided text.
 - Use a ${pOptions.tone} tone.
@@ -154,12 +169,11 @@ export const actions: Action<ExtensionOptions>[] = [
     icon: "iconify:mdi:file-minus",
   },
   {
-    title: "Summarize the text",
-    after: "show-result",
-    code: summarizeFm,
+    title: "Simplify the text",
+    code: simplifyFn,
     stayVisible: true,
-    requirements: ["option-showSummary=1"],
-    icon: "symbol:arrow.down.right.and.arrow.up.left",
+    requirements: ["option-showSimplify=1"],
+    icon: "file:simplify.svg",
   },
   {
     title: "Translate",
