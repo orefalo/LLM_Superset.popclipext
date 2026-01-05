@@ -18,7 +18,7 @@ async function improveWrittingFn(input: Input, options: ExtensionOptions) {
 - DO NOT explain what was wrong with the original text.
 - For code elements KEEP them unchanged.
 
-${input.text.trim()}
+rewrite: ${input.text.trim()}
 `;
 
   // `You are an spelling corrector and improver. Keep the meaning the same. Use a ${pOptions.tone} tone. Avoid complex words and verbs. Respond in the same language as the original text. Reply only with the corrected and improved text; do not write explanations.\n\n${input.text.trim()}`;
