@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { type ParsedOptions } from "./parsedOptions.ts";
+import type { ParsedOptions } from "./parsedOptions.ts";
 
 export async function callLLMapi(
   prompt: string,

@@ -17,6 +17,7 @@ export const options = [
     identifier: "apikey",
     label: "API Key",
     type: "secret",
+    requirements: ["text", "paste"],
     description:
       "Obtain an API key from https://platform.openai.com/account/api-keys or https://console.anthropic.com/settings/keys",
   },
