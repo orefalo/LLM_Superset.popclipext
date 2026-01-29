@@ -109,6 +109,7 @@ async function callCustomAPI(prompt: string, options: ParsedOptions) {
     headers: {
       Authorization: `Bearer ${key}`,
     },
+    timeout: 300000,
   };
 
   const messages = [{ role: "user", content: prompt }];
