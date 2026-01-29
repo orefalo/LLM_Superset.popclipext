@@ -1,18 +1,22 @@
 import axios from "axios";
 
-import { type ParsedOptions } from "./parsedOptions.ts";
+import type { ParsedOptions } from "./parsedOptions.ts";
 
-export async function callLLMapi(prompt: string, options: ParsedOptions) {
+export async function callLLMapi(
+  prompt: string,
+  options: ParsedOptions,
+  sysPrompt?: string,
+) {
   try {
     switch (options.provider) {
       case "openai":
-        return await callOpenAPI(prompt, options);
+        return await callOpenAPI(prompt, options, sysPrompt);
       case "claude":
-        return await callClaudeAPI(prompt, options);
+        return await callClaudeAPI(prompt, options, sysPrompt);
       case "gemini":
-        return await callGeminiAPI(prompt, options);
+        return await callGeminiAPI(prompt, options, sysPrompt);
       case "custom":
-        return await callCustomAPI(prompt, options);
+        return await callCustomAPI(prompt, options, sysPrompt);
       default:
         throw new Error(`Unknown provider ${options.provider}`);
     }
@@ -27,7 +31,11 @@ export async function callLLMapi(prompt: string, options: ParsedOptions) {
 }
 
 // --- CLAUDE
-async function callClaudeAPI(prompt: string, options: ParsedOptions) {
+async function callClaudeAPI(
+  prompt: string,
+  options: ParsedOptions,
+  sysPrompt?: string,
+) {
   const key = options.apiKey;
 
   const requestConfig = {
@@ -41,20 +49,31 @@ async function callClaudeAPI(prompt: string, options: ParsedOptions) {
 
   const messages = [{ role: "user", content: prompt }];
 
+  const msg = {
+    model: options.model,
+    max_tokens: 2048,
+    messages,
+  };
+
+  if (sysPrompt) {
+    //@ts-expect-error
+    msg.system = sysPrompt;
+  }
+
   const { data } = await axios.post(
     "https://api.anthropic.com/v1/messages",
-    {
-      model: options.model,
-      max_tokens: 2048,
-      messages,
-    },
+    msg,
     requestConfig,
   );
   return data.content[0].text.trim();
 }
 
 // --- OPENAI
-async function callOpenAPI(prompt: string, options: ParsedOptions) {
+async function callOpenAPI(
+  userPrompt: string,
+  options: ParsedOptions,
+  sysPrompt?: string,
+) {
   const key = options.apiKey;
 
   const requestConfig = {
@@ -63,7 +82,11 @@ async function callOpenAPI(prompt: string, options: ParsedOptions) {
     },
   };
 
-  const messages = [{ role: "user", content: prompt }];
+  const messages = [{ role: "user", content: userPrompt }];
+  if (sysPrompt) {
+    messages.push({ role: "system", content: sysPrompt });
+  }
+
   const { data } = await axios.post(
     "https://api.openai.com/v1/chat/completions",
     {
@@ -76,7 +99,11 @@ async function callOpenAPI(prompt: string, options: ParsedOptions) {
 }
 
 // --- GEMINI
-async function callGeminiAPI(prompt: string, options: ParsedOptions) {
+async function callGeminiAPI(
+  prompt: string,
+  options: ParsedOptions,
+  sysPrompt?: string,
+) {
   const url = `https://generativelanguage.googleapis.com/v1/models/${options.model}:generateContent?key=${options.apiKey}`;
 
   const body = {
@@ -87,6 +114,14 @@ async function callGeminiAPI(prompt: string, options: ParsedOptions) {
       },
     ],
   };
+
+  if (sysPrompt) {
+    // @ts-expect-error
+    body.systemInstruction = {
+      role: "system",
+      parts: [{ text: sysPrompt }],
+    };
+  }
 
   const res = await axios.post(url, body, {
     headers: { "Content-Type": "application/json" },
@@ -102,7 +137,11 @@ async function callGeminiAPI(prompt: string, options: ParsedOptions) {
 }
 
 // --- CUSTOM/LOCAL Endpoint
-async function callCustomAPI(prompt: string, options: ParsedOptions) {
+async function callCustomAPI(
+  prompt: string,
+  options: ParsedOptions,
+  sysPrompt?: string,
+) {
   const key = options.apiKey;
 
   const requestConfig = {
@@ -113,6 +152,10 @@ async function callCustomAPI(prompt: string, options: ParsedOptions) {
   };
 
   const messages = [{ role: "user", content: prompt }];
+  if (sysPrompt) {
+    messages.push({ role: "system", content: sysPrompt });
+  }
+
   const { data } = await axios.post(
     `${options.protocol}://${options.server}:${options.port}/v1/chat/completions`,
     {

@@ -1,10 +1,9 @@
 // #popclip
 // name: LLM Superset
-// icon: iconify:tabler:file-text-ai
+// icon: preserve-color file:superset.svg
 // identifier: orefalo.popclip.extension.chatgpt-superset
 // description: Send the selected text to your prefered LLM and pastes the response. Hold Shift (⇧) to copy the response to the clipboard.
 // note: To use this extension you will need API keys from the respective providers
-// app: { name: LLM Superset, link: 'https://github.com/orefalo/LLM_Superset' }
 // popclipVersion: 4586
 // keywords: openai claude gemini chatgpt superset
 // entitlements: [network]
@@ -18,6 +17,7 @@ export const options = [
     identifier: "apikey",
     label: "API Key",
     type: "secret",
+    requirements: ["text", "paste"],
     description:
       "Obtain an API key from https://platform.openai.com/account/api-keys or https://console.anthropic.com/settings/keys",
   },
@@ -97,10 +97,10 @@ export const options = [
     icon: "iconify:mdi:file-minus",
   },
   {
-    identifier: "showSummary",
-    label: "Show Summary Button",
+    identifier: "showSimplify",
+    label: "Show Simplify Button",
     type: "boolean",
-    icon: "symbol:arrow.down.right.and.arrow.up.left",
+    icon: "file:simplify.svg",
   },
   {
     identifier: "showTranslate",

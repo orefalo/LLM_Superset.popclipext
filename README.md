@@ -2,16 +2,16 @@
 
 <p align="center">
 Supports
-  <img src="chatgpt-icon.svg" width="60px"/>
-  <img src="claude-ai-icon.svg" width="60px"/>
-  <img src="gemini-icon.svg" width="60px"/>
+  <img src="img/chatgpt-icon.svg" width="60px"/>
+  <img src="img/claude-ai-icon.svg" width="60px"/>
+  <img src="img/gemini-icon.svg" width="60px"/>
 </p>
 
 <p align="center">
- <img src="screenshot1.png"/>
+ <img src="img/screenshot1.png"/>
 <p>
 <p align="center">
- <img src="screenshot2.png"/>
+ <img src="img/screenshot2.png"/>
 </p>
 
 This is my custom extension for PopClip supporting some of the best LLM.
@@ -33,7 +33,7 @@ This is my custom extension for PopClip supporting some of the best LLM.
 ### Option 2
 
 1. Clone this repo
-2. Run command `pnpm i` followed by `pnpm install_ext`
+2. Run command `pnpm i` followed by `pnpm install_bundle`
 3. The extension will compile into `LLM_Superset.popclipext` and auto-deploy
 3. Follow PopClip instructions
 
@@ -72,11 +72,19 @@ For instance:
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=orefalo/LLM_Superset.popclipext&type=Date)](https://star-history.com/#orefalo/LLM_Superset.popclipext&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=orefalo/LLM_Superset.popclipext&type=date&legend=top-left)](https://www.star-history.com/#orefalo/LLM_Superset.popclipext&type=date&legend=top-left)
 
 ## Debug
 
-To enable console debug, follow these instructions
+To help you when creating extensions, PopClip can send script outputs and other debug info to the Console app. To enable it, run this command in Terminal, then Quit and restart PopClip:
+`defaults write com.pilotmoon.popclip EnableExtensionDebug -bool YES`
 
-1. from the CLI, run `defaults write com.pilotmoon.popclip EnableExtensionDebug -bool YES`
-2. then open OSX's **console.app** and apply filter **Process:PopClip** and **pnCategory:Extension**
+You can then view the debug output in the Console app.
+
+<img src="img/console.png"/>
+
+To filter the Console to show just PopClip extensions, enter Process "PopClip" and Category "Extension" in the Search field. You can add this as a saved search by clicking the Save button in the toolbar:
+
+<img src="img/console-filter.png"/>
+
+all `print()` commands are sent to the console.
