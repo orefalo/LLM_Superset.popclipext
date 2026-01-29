@@ -158,6 +158,12 @@ ${input.text.trim()}
   prepareResponse(data);
 }
 
+async function answerFn(input: Input, options: ExtensionOptions) {
+  const pOptions = parseOptions(options);
+  const data = await callLLMapi(input.text.trim(), pOptions);
+  prepareResponse(data);
+}
+
 function stripThink(output: string): string {
   // Remove everything from <think> up to the matching </think>, non-greedily
   const withoutThink = output.replace(/<think>[\s\S]*?<\/think>/g, "");
@@ -218,5 +224,12 @@ export const actions: Action<ExtensionOptions>[] = [
     stayVisible: true,
     requirements: ["option-showTranslate=1"],
     icon: "iconify:bi:translate",
+  },
+  {
+    title: "Answer",
+    code: answerFn,
+    stayVisible: true,
+    requirements: ["option-showAnswer=1"],
+    icon: "iconify:mdi:head-lightbulb-outline",
   },
 ];

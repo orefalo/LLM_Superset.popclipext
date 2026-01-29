@@ -108,4 +108,10 @@ export const options = [
     type: "boolean",
     icon: "iconify:bi:translate",
   },
+  {
+    identifier: "showAnswer",
+    label: "Show Answer Button",
+    type: "boolean",
+    icon: "iconify:mdi:head-lightbulb-outline",
+  },
 ] as const;
