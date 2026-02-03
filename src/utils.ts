@@ -148,6 +148,7 @@ async function callCustomAPI(
     headers: {
       Authorization: `Bearer ${key}`,
     },
+    timeout: 300000,
   };
 
   const messages = [{ role: "user", content: prompt }];
